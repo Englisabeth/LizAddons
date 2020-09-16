@@ -24,10 +24,9 @@ bl_info = {
 
 import bpy
 
-from . operators.liz_ops import CenterMeOP
+from . operators.liz_ops import LizCenterCursor
 from . panels.liz_panel import VIEW3D_PT_LizAddon
-from easybpy import *
 
-classes = (CenterMeOP, VIEW3D_PT_LizAddon)
+classes = (LizCenterCursor, VIEW3D_PT_LizAddon)
 
 register, unregister =bpy.utils.register_classes_factory(classes)

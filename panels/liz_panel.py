@@ -10,11 +10,11 @@ class VIEW3D_PT_LizAddon(bpy.types.Panel):
     bl_region_type = "UI"
 
 ############################################
-
-
-# Draw center origin 
+# Draw center origin button
     def draw(self, context):
         layout = self.layout
 
         row = layout.row()
-        row.operator("liz.center.cursor", text="Center 3D Cursor to World Origin")
+        row.operator("view3d.cursor_center", text="Center 3D Cursor to World Origin")
+        row = layout.row()
+        row.operator("mesh.hplprenamer_liz", text="Rename toggle high/low")

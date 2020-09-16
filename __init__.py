@@ -23,10 +23,12 @@ bl_info = {
 }
 
 import bpy
+from . utils.liztools import *
 
 from . operators.liz_ops import LizCenterCursor
+from . operators.liz_ops import LizHPLPRenamer
 from . panels.liz_panel import VIEW3D_PT_LizAddon
 
-classes = (LizCenterCursor, VIEW3D_PT_LizAddon)
+classes = (LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer)
 
 register, unregister =bpy.utils.register_classes_factory(classes)

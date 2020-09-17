@@ -17,24 +17,49 @@ class LizHPLPRenamer(bpy.types.Operator):
 
     def execute(self, context):
         selection = []
-        selection = liztools.active_get
-        lp_s = '_low'
-        hp_s = '_high'
+        selection = liztools.get_selected()
+        lp_suffix = '_low'
+        hp_suffix = '_high'
 
-        lp = s_lp_end
-        
-        hp = s_hp_end
-
-        
-
-        for obj in selection:
-            if obj is lp:
-                bpy.context.object.name = hp_rename
+        lp = [obj for obj in selection if obj.name.endswith(lp_suffix)]
+        if lp = go_high()
     
+    
+
+            polycount_list = [len(obj.data.polygons) for obj in selection]
+            lowest_index = polycount_list.index(min(polycount_list))
+            lp = selection[lowest_index]
+            lp.name = lp.name + lp_suffix
+
+        elif lp[0].name.endswith(lp_suffix):
+            lp = lp[0]
+
         for obj in selection:
-            if obj is hp:
-                bpy.context.object.name = lp_rename
+            if obj is not lp:
+                obj.name = lp.name[:-len(lp_suffix)] + hp_suffix
+
+        return{'FINISHED'}
+
+        # selection = []
+        # selection = liztools.active_get
+        # lp_s = '_LowPoly'
+        # hp_s = '_high'
 
 
-        
+        # for obj in selection:
+        #     if obj is lp:
+        #         bpy.context.object.name = hp_rename
+    
+        # for obj in selection:
+        #     if obj is hp:
+        #         bpy.context.object.name = lp_rename
+
         return {'FINISHED'}
+
+# Sets active object based on name
+def active_set(obj, item=True):
+    if item:
+        print(obj)
+        bpy.context.view_layer.objects.active = obj
+    else:
+        bpy.context.view_layer.objects.active = bpy.data.objects[obj]

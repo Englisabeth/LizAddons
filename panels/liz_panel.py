@@ -17,4 +17,4 @@ class VIEW3D_PT_LizAddon(bpy.types.Panel):
         row = layout.row()
         row.operator("view3d.cursor_center", text="Center 3D Cursor to World Origin")
         row = layout.row()
-        row.operator("mesh.hplprenamer_liz", text="Rename toggle high/low")
+        row.operator("view3d.lizhplp", text="Rename toggle high/low")

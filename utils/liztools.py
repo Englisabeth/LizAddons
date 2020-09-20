@@ -80,17 +80,12 @@ def get_selected(mode='', item=True, ordered=False, all=False):
     else:
         return []
 
-def get_mode():
-    mode = bpy.context.mode
-    if mode == 'EDIT_MESH':
-        selection_mode = (tuple(bpy.context.scene.tool_settings.mesh_select_mode))
-        if selection_mode[0]:
-            return 'VERT'
-        elif selection_mode[1]:
-            return 'EDGE'
-        elif selection_mode[2]:
-            return 'FACE'
-    return mode
-
-    def go_high():
-    
+    def low_hp_changer(self, context):
+        for item in context.selected_objects:
+            if item.name.endswith("_high"):
+                item.name = item.name[:-len("_high")] + "_low"
+            elif item.name.endswith("_low"):
+                item.name = item.name[:-len("_low")] + "_high"
+            else:
+                item.name += "_high"
+        return {'FINISHED'}

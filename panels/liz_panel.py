@@ -15,6 +15,10 @@ class VIEW3D_PT_LizAddon(bpy.types.Panel):
         layout = self.layout
 
         row = layout.row()
+        row.operator("view3d.orbit_select", text="Poopy")
+        row = layout.row()
+        row.operator("view3d.snap_selected_to_cursor", text="Snap Selected Object to Center")
+        row = layout.row()
         row.operator("view3d.cursor_center", text="Center 3D Cursor to World Origin")
         row = layout.row()
         row.operator("view3d.lizhplp", text="Rename toggle high/low")

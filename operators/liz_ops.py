@@ -1,6 +1,24 @@
 import bpy
 from ..utils import liztools
 
+class LizOrbitSelectionToggle(bpy.types.Operator):
+    bl_idname = "view3d.orbit_select"
+    bl_label = "Orbit around selection toggle"
+    bl_description = "Orbit around selection toggle"
+
+    def execute(self, context):
+        bpy.types.PreferencesInput.use_rotate_around_active()
+        return {'FINISHED'}
+
+class LizSnapSelectedToCursor(bpy.types.Operator):
+    bl_idname = "view3d.snap_selected_to_cursor"
+    bl_label = "Center 3d cursor"
+    bl_description = "Center 3d cursor"
+
+    def execute(self, context):
+        bpy.ops.view3d.snap_cursor_to_center()
+        return {'FINISHED'}
+
 class LizCenterCursor(bpy.types.Operator):
     bl_idname = "view3d.cursor_center"
     bl_label = "Center 3d cursor"
@@ -24,11 +42,3 @@ class LizHPLPRenamer(bpy.types.Operator):
             else:
                 item.name += "_high"
         return {'FINISHED'}
-
-# Sets active object based on name
-def active_set(obj, item=True):
-    if item:
-        print(obj)
-        bpy.context.view_layer.objects.active = obj
-    else:
-        bpy.context.view_layer.objects.active = bpy.data.objects[obj]

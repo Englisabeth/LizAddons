@@ -7,7 +7,8 @@ class LizOrbitSelectionToggle(bpy.types.Operator):
     bl_description = "Orbit around selection toggle"
 
     def execute(self, context):
-        bpy.types.PreferencesInput.use_rotate_around_active()
+        new_value = not bpy.context.preferences.inputs.use_rotate_around_active
+        bpy.context.preferences.inputs.use_rotate_around_active = new_value
         return {'FINISHED'}
 
 class LizSnapSelectedToCursor(bpy.types.Operator):

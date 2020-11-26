@@ -7,17 +7,8 @@ class LizOrbitSelectionToggle(bpy.types.Operator):
     bl_description = "Orbit around selection toggle"
 
     def execute(self, context):
-        new_value = not bpy.context.preferences.inputs.use_rotate_around_active
-        bpy.context.preferences.inputs.use_rotate_around_active = new_value
-        return {'FINISHED'}
-
-class LizSnapSelectedToCursor(bpy.types.Operator):
-    bl_idname = "view3d.snap_selected_to_cursor"
-    bl_label = "Center 3d cursor"
-    bl_description = "Center 3d cursor"
-
-    def execute(self, context):
-        bpy.ops.view3d.snap_cursor_to_center()
+        new_value = not context.preferences.inputs.use_rotate_around_active
+        context.preferences.inputs.use_rotate_around_active = new_value
         return {'FINISHED'}
 
 class LizCenterCursor(bpy.types.Operator):

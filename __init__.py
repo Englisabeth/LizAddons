@@ -16,7 +16,7 @@ bl_info = {
     "author" : "Englisabeth",
     "description" : "Useful things",
     "blender" : (2, 90, 0),
-    "version" : (0, 0, 3),
+    "version" : (0, 0, 4),
     "location" : "View3D",
     "warning" : "",
     "category" : "Generic"
@@ -27,9 +27,8 @@ from . utils.liztools import *
 from . operators.liz_ops import LizCenterCursor
 from . operators.liz_ops import LizHPLPRenamer
 from . operators.liz_ops import LizOrbitSelectionToggle
-from . operators.liz_ops import LizSnapSelectedToCursor
 from . panels.liz_panel import VIEW3D_PT_LizAddon
 
-classes = (LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer, LizSnapSelectedToCursor, LizOrbitSelectionToggle)
+classes = (LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer, LizOrbitSelectionToggle)
 
 register, unregister =bpy.utils.register_classes_factory(classes)

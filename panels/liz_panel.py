@@ -15,7 +15,7 @@ class VIEW3D_PT_LizAddon(bpy.types.Panel):
         layout = self.layout
 
         row = layout.row()
-        row.operator("view3d.orbit_select", text="Poopy")
+        row.operator("view3d.orbit_select", text="Toggle orbit around selection")
         row = layout.row()
         row.operator("view3d.snap_selected_to_cursor", text="Snap Selected Object to Center")
         row = layout.row()

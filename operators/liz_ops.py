@@ -11,6 +11,19 @@ class LizOrbitSelectionToggle(bpy.types.Operator):
         context.preferences.inputs.use_rotate_around_active = new_value
         return {'FINISHED'}
 
+class LizNormalSmooth(bpy.types.Operator):
+    bl_idname = "mesh.liznormal"
+    bl_label = "Smooth & Weight Normals"
+    bl_description = "Sets normal smoothing to 45 and adds a weighted normal modifier"
+
+    def execute(self, context):
+        bpy.ops.object.shade_smooth()
+        bpy.context.object.data.use_auto_smooth = True
+        bpy.context.object.data.auto_smooth_angle = 0.785398
+        bpy.ops.object.modifier_add(type='WEIGHTED_NORMAL')
+        bpy.context.object.modifiers["WeightedNormal"].keep_sharp = True
+        return {'FINISHED'}
+
 class LizCenterCursor(bpy.types.Operator):
     bl_idname = "view3d.cursor_center"
     bl_label = "Center 3d cursor"

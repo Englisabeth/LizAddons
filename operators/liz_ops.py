@@ -24,6 +24,19 @@ class LizNormalSmooth(bpy.types.Operator):
         bpy.context.object.modifiers["WeightedNormal"].keep_sharp = True
         return {'FINISHED'}
 
+class LizExportHP(bpy.types.Operator):
+    bl_idname = "export.lizhp"
+    bl_label = "Smooth & Weight Normals"
+    bl_description = "Snaps to 3D cursor and Exports to FBX, then resets position"
+
+    def execute(self, context):
+        bpy.ops.object.shade_smooth()
+        bpy.context.object.data.use_auto_smooth = True
+        bpy.context.object.data.auto_smooth_angle = 0.785398
+        bpy.ops.object.modifier_add(type='WEIGHTED_NORMAL')
+        bpy.context.object.modifiers["WeightedNormal"].keep_sharp = True
+        return {'FINISHED'}
+
 class LizCenterCursor(bpy.types.Operator):
     bl_idname = "view3d.cursor_center"
     bl_label = "Center 3d cursor"

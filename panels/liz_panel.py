@@ -11,15 +11,15 @@ class VIEW3D_PT_LizAddon(bpy.types.Panel):
     def draw(self, context):
         layout = self.layout
 
-        layout.label(text="Setting switches")
+        layout.label(text="Quicktoggle settings", icon="SETTINGS")
         row = layout.row()
-        row.operator("view3d.orbit_select", text="Toggle orbit around selection")
-        layout.label(text="Hardpoly Workflow")
+        row.operator("view3d.orbit_select", text="Toggle orbit around selection", icon="CON_ROTLIKE")
+        layout.label(text="Hardpoly Workflow", icon="MESH_CUBE")
         row = layout.row()
-        row.operator("view3d.snap_selected_to_cursor", text="Snap Selected Object to 3D Cursor")
+        row.operator("view3d.snap_selected_to_cursor", text="Snap Object to 3D Cursor", icon="BACK")
         row = layout.row()
-        row.operator("view3d.cursor_center", text="Snap 3D Cursor to World Origin")
+        row.operator("view3d.cursor_center", text="Snap 3D Cursor to World Origin", icon="EMPTY_AXIS")
         row = layout.row()
-        row.operator("view3d.lizhplp", text="Rename toggle high/low")
+        row.operator("view3d.lizhplp", text="Rename toggle high/low", icon="SORTALPHA")
         layout = layout.row()
-        layout.operator("mesh.liznormal", text="Smooth & Weight Normals")
+        layout.operator("mesh.liznormal", text="Smooth & Weight Normals", icon="SURFACE_NSPHERE")

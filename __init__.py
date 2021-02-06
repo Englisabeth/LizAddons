@@ -15,11 +15,12 @@ bl_info = {
 import bpy
 from . utils.liztools import *
 from . operators.liz_ops import LizNormalSmooth
+from . operators.liz_ops import LizExportHP
 from . operators.liz_ops import LizCenterCursor
 from . operators.liz_ops import LizHPLPRenamer
 from . operators.liz_ops import LizOrbitSelectionToggle
 from . panels.liz_panel import VIEW3D_PT_LizAddon
 
-classes = (LizNormalSmooth, LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer, LizOrbitSelectionToggle)
+classes = (LizNormalSmooth, LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer, LizOrbitSelectionToggle, LizExportHP)
 
 register, unregister =bpy.utils.register_classes_factory(classes)

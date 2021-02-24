@@ -34,8 +34,8 @@ class LizExportHP(bpy.types.Operator):
         RotationCopy = bpy.context.active_object.location.copy()
         bpy.ops.view3d.snap_cursor_to_center()
         bpy.ops.view3d.snap_selected_to_cursor()
-        bpy.ops.transform.translate(value=(print('LocationCopy[1]'), print('LocationCopy[2]'), print('LocationCopy[3]'), orient_type='GLOBAL', orient_matrix=((0, 0, 0), (0, 0, 0), (0, 0, 0)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
-        bpy.ops.transform.rotate(value=(print('RotationCopy[1]'), print('RotationCopy[2]'), print('RotationCopy[3]'), orient_type='GLOBAL', orient_matrix=((0, 0, 0), (0, 0, 0), (0, 0, 0)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', use_proportional_connected=False, use_proportional_projected=False)
+       ## bpy.ops.transform.translate(value=(print('LocationCopy[1]'), print('LocationCopy[2]'), print('LocationCopy[3]'), orient_type='GLOBAL', orient_matrix=((0, 0, 0), (0, 0, 0), (0, 0, 0)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+      ##  bpy.ops.transform.rotate(value=(print('RotationCopy[1]'), print('RotationCopy[2]'), print('RotationCopy[3]'), orient_type='GLOBAL', orient_matrix=((0, 0, 0), (0, 0, 0), (0, 0, 0)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', use_proportional_connected=False, use_proportional_projected=False)
         return {'FINISHED'}
 
 class LizCenterCursor(bpy.types.Operator):

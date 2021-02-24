@@ -7,8 +7,8 @@ class LizOrbitSelectionToggle(bpy.types.Operator):
     bl_description = "Orbit around selection toggle"
 
     def execute(self, context):
-        new_value = not context.preferences.inputs.use_rotate_around_active
-        context.preferences.inputs.use_rotate_around_active = new_value
+        OrbitSelectionToggle = not context.preferences.inputs.use_rotate_around_active
+        context.preferences.inputs.use_rotate_around_active = OrbitSelectionToggle
         return {'FINISHED'}
 
 class LizNormalSmooth(bpy.types.Operator):
@@ -26,15 +26,16 @@ class LizNormalSmooth(bpy.types.Operator):
 
 class LizExportHP(bpy.types.Operator):
     bl_idname = "export.lizhp"
-    bl_label = "Smooth & Weight Normals"
-    bl_description = "Snaps to 3D cursor and Exports to FBX, then resets position"
+    bl_label = "Move and export mesh back and forth"
+    bl_description = "Snaps to 3D cursor and Exports to obj, then resets position"
 
     def execute(self, context):
-        bpy.ops.object.shade_smooth()
-        bpy.context.object.data.use_auto_smooth = True
-        bpy.context.object.data.auto_smooth_angle = 0.785398
-        bpy.ops.object.modifier_add(type='WEIGHTED_NORMAL')
-        bpy.context.object.modifiers["WeightedNormal"].keep_sharp = True
+        LocationCopy = bpy.context.active_object.location.copy()
+        RotationCopy = bpy.context.active_object.location.copy()
+        bpy.ops.view3d.snap_cursor_to_center()
+        bpy.ops.view3d.snap_selected_to_cursor()
+       ## bpy.ops.transform.translate(value=(print('LocationCopy[1]'), print('LocationCopy[2]'), print('LocationCopy[3]'), orient_type='GLOBAL', orient_matrix=((0, 0, 0), (0, 0, 0), (0, 0, 0)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
+      ##  bpy.ops.transform.rotate(value=(print('RotationCopy[1]'), print('RotationCopy[2]'), print('RotationCopy[3]'), orient_type='GLOBAL', orient_matrix=((0, 0, 0), (0, 0, 0), (0, 0, 0)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', use_proportional_connected=False, use_proportional_projected=False)
         return {'FINISHED'}
 
 class LizCenterCursor(bpy.types.Operator):

@@ -6,7 +6,7 @@ bl_info = {
     "author" : "Englisabeth",
     "description" : "Shortcuts I use in my workflow alot",
     "blender" : (2, 91, 0),
-    "version" : (0, 0, 5),
+    "version" : (0, 0, 6.5),
     "location" : "View3D",
     "warning" : "",
     "category" : "Generic"
@@ -18,8 +18,9 @@ from . operators.liz_ops import LizNormalSmooth
 from . operators.liz_ops import LizCenterCursor
 from . operators.liz_ops import LizHPLPRenamer
 from . operators.liz_ops import LizOrbitSelectionToggle
+from . operators.liz_ops import LizNumpadEmuSelectionToggle
 from . panels.liz_panel import VIEW3D_PT_LizAddon
 
-classes = (LizNormalSmooth, LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer, LizOrbitSelectionToggle)
+classes = (LizNormalSmooth, LizCenterCursor, VIEW3D_PT_LizAddon, LizHPLPRenamer, LizOrbitSelectionToggle, LizNumpadEmuSelectionToggle)
 
 register, unregister =bpy.utils.register_classes_factory(classes)

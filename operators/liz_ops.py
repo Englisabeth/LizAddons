@@ -11,6 +11,16 @@ class LizOrbitSelectionToggle(bpy.types.Operator):
         context.preferences.inputs.use_rotate_around_active = OrbitSelectionToggle
         return {'FINISHED'}
 
+class LizNumpadEmuSelectionToggle(bpy.types.Operator):
+    bl_idname = "view3d.emu_numpad"
+    bl_label = "Toggle Numpad Emulation"
+    bl_description = "Toggle Numpad Emulation"
+
+    def execute(self, context):
+        UseNumpadEmuToggle = not context.preferences.inputs.use_emulate_numpad
+        context.preferences.inputs.use_emulate_numpad = UseNumpadEmuToggle
+        return {'FINISHED'}
+
 class LizNormalSmooth(bpy.types.Operator):
     bl_idname = "mesh.liznormal"
     bl_label = "Smooth & Weight Normals"

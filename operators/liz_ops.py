@@ -71,3 +71,18 @@ class LizHPLPRenamer(bpy.types.Operator):
             else:
                 item.name += "_high"
         return {'FINISHED'}
+
+class LizOriginTo3DCursor(bpy.types.Operator):
+    bl_idname = "view3d.liz3dorigin"
+    bl_label = "Snap Object origin to 3D Cursor"
+    bl_description = "Snaps Objects origin to 3D cursor"
+
+    def execute(self, context):
+        bpy.ops.object.origin_set(type='ORIGIN_CURSOR', center='MEDIAN')
+        return {'FINISHED'}
+
+##
+##
+## NEVER FORGET THIS AAAHHHHH
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS!!! BL_IDNAMES CAN NOT USE CAPITAL LETTERS!!!
+##

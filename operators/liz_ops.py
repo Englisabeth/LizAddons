@@ -27,11 +27,7 @@ class LizNormalSmooth(bpy.types.Operator):
     bl_description = "Sets normal smoothing to 45 and adds a weighted normal modifier"
 
     def execute(self, context):
-        bpy.ops.object.shade_smooth()
-        bpy.context.object.data.use_auto_smooth = True
-        bpy.context.object.data.auto_smooth_angle = 0.785398
-        bpy.ops.object.modifier_add(type='WEIGHTED_NORMAL')
-        bpy.context.object.modifiers["WeightedNormal"].keep_sharp = True
+        bpy.ops.object.shade_auto_smooth(angle=0.785398)
         return {'FINISHED'}
 
 class LizExportHP(bpy.types.Operator):
@@ -75,7 +71,7 @@ class LizHPLPRenamer(bpy.types.Operator):
 class LizOriginTo3DCursor(bpy.types.Operator):
     bl_idname = "view3d.liz3dorigin"
     bl_label = "Snap Object origin to 3D Cursor"
-    bl_description = "Snaps Objects origin to 3D cursor"
+    bl_description = "Snaps Objects' origin to 3D cursor"
 
     def execute(self, context):
         bpy.ops.object.origin_set(type='ORIGIN_CURSOR', center='MEDIAN')
@@ -84,5 +80,12 @@ class LizOriginTo3DCursor(bpy.types.Operator):
 ##
 ##
 ## NEVER FORGET THIS AAAHHHHH
-## BL_IDNAMES CAN NOT USE CAPITAL LETTERS!!! BL_IDNAMES CAN NOT USE CAPITAL LETTERS!!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!! 
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
+## BL_IDNAMES CAN NOT USE CAPITAL LETTERS !!!
 ##

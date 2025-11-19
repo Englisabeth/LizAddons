@@ -4,9 +4,9 @@
 bl_info = {
     "name" : "LizAddons",
     "author" : "Englisabeth on GitHub",
-    "description" : "Shortcuts I use in my workflow alot",
-    "blender" : (2, 91, 0),
-    "version" : (0, 5, 0),
+    "description" : "Some utils & shortcuts for a better workflow, I usually put some of them on my quickmenu",
+    "blender" : (4, 5, 0),
+    "version" : (0, 5, 1),
     "location" : "View3D",
     "warning" : "",
     "category" : "Generic"
